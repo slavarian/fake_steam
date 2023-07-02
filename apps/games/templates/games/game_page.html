@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Магазин Steam</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      header {
+        background-color: #171a21;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background-color: #333;
+        overflow: hidden;
+      }
+      
+      nav ul li {
+        float: left;
+      }
+      
+      nav ul li a {
+        display: block;
+        color: #fff;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      nav ul li a:hover {
+        background-color: #111;
+      }
+      
+      section {
+        padding: 20px;
+      }
+      .gd {
+        display: flex;
+        flex-direction: column;
+        margin-left: 50px;
+      }
+    
+      .lld {
+            margin-left: 150px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+      }
+
+      .ld {
+        width: auto;
+        height: auto;
+        text-align: center;
+      }
+
+      .game {
+        display: inline-block;
+        margin: 10px;
+        width: 200px;
+        text-align: center;
+        display: flex;
+    
+       
+      }
+      .game img {
+        min-width: 500px;
+        height: 500px;
+
+      
+      }
+      textarea {
+        min-height: 200px;
+        min-width: 400px;
+      }
+      footer {
+        background-color: #171a21;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+      
+      .bt1 {
+        background-color: green;
+        width: 120px;
+        height: 50px;
+        color: white;
+        border-radius: 15px;
+        margin-left: 50px;
+      } 
+      .bt2 {
+        background-color: rgb(77, 14, 129);
+        width: 120px;
+        height: 50px;
+        color: white;
+        border-radius: 15px;
+        margin-top: 20px;
+      } 
+
+      .comm {
+      min-width: 400px; /* ширина нашего блока */
+      min-height:200px; /* высота нашего блока */
+      background: #fff; /* цвет фона, белый */
+      border: 1px solid #C1C1C1; /* размер и цвет границы блока */
+      overflow: auto; /* свойство для прокрутки по горизонтали. Автоматом, если больше блока */
+      }
+      a {
+        color: #0078d7;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      a:visited {
+        color: #663399;
+      }
+      
+      @media (max-width: 768px) {
+        .game {
+          width: 100%;
+        }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Добро пожаловать в магазин Steam 
+    <img style="max-width: 100px" src="https://img.icons8.com/?size=2x&id=XLYyiimvk3fV&format=png" alt=""></h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="http://127.0.0.1:8000/games/steam/">Главная</a></li>
+      <li><a href="#">Игры</a></li>
+      <li><a href="#">Акции</a></li>
+      <li><a href="http://127.0.0.1:8000/games/steam/about">О нас</a></li>
+      <li><a href="#">Поддержка</a></li>
+    </ul>
+  </nav>
+
+  <section>
+ 
+    <div class="game">
+        <div class="ld">
+    <h1>{{ games.name }}</h1>
+      <img src="https://s3.ap-southeast-1.amazonaws.com/cdn.vcgamers.com/news/wp-content/uploads/2023/01/tanggal-rilis-GTA-6.jpg" alt="">
+        </div>
+      <div class="gd">
+      <h1>{{ games.name }}</h1>
+      <h2>Жанры: {{ games.genres }}</h1>
+      <h2>Цена: {{ games.price }}</h3>
+      <h2>Издатель: {{ games.company }}</h2>
+      <button  class="bt1">Купить игру</button>
+    
+ 
+    </div>
+    <div class="lld">
+        <form action="">
+            <h2>Оставь комментарий:</h2>
+            <textarea>
+            </textarea>
+            <button class="bt2">Оставить комментарий</button>
+        </form>
+            <h3>Комментарии:</h3>
+            <div class="comm">
+              {% for i in comm %}
+            <p>Оставил коммент: {{ i.user }}</p>
+            <p>Пользователь {{ i.user }} оценил игру на: {{ i.rate }} баллов</p>
+            <p>Текст : {{ i.text }}</p>
+              {% endfor %}
+          </div>
+    </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>&copy; 2023 Магазин Steam. Все права НЕ защищены.</p>
+  </footer>
+</body>
+</html>
