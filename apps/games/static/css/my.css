@@ -1,0 +1,45 @@
+
+.all {
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(320deg,pink, #23bddc, #6e6eff);
+    border-radius: 1px solid black;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.card {
+    display: flex;
+    width: 35%;
+    height: 200px;
+    padding-left: 50px;
+    padding-top: 20px;
+}
+.img_logo {
+    margin-bottom: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.ld {
+    display: flex;
+    padding-left: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    width: 50%;
+    box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.btn-info {
+    height: 50px;
+    border-radius: 15px;
+    margin-left: 5px;
+    color: white;
+}
