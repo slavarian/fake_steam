@@ -70,11 +70,14 @@ class Game(models.Model):
         to=Genre,
         related_name='games'
     )
+<<<<<<< HEAD
     main_imgor = models.ImageField(
         verbose_name='изображение',
         upload_to='games/',
         default='games/unknown.png'
     )
+=======
+>>>>>>> 984084a2207a36f6070aed74c596a38203909407
 
     class Meta:
         ordering = ('price', 'name')
@@ -84,6 +87,7 @@ class Game(models.Model):
     def __str__(self) -> str:
         return f'{self.company} | {self.name} | {self.price}$'
 
+<<<<<<< HEAD
 class AdditionalImage(models.Model):
     game = models.ForeignKey(
         Game,
@@ -101,6 +105,8 @@ class AdditionalImage(models.Model):
 
     def __str__(self):
         return f'{self.game.name} - Дополнительное изображение {self.pk}'
+=======
+>>>>>>> 984084a2207a36f6070aed74c596a38203909407
 
 class Comment(models.Model):
 

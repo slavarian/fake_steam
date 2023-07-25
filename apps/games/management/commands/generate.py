@@ -16,6 +16,7 @@ from games.models import (
 class Command(BaseCommand):
     """Command for generate data for Database."""
 
+<<<<<<< HEAD
     def create_companies(self) -> None:
         _companies_name_pattern: set[str] = {
             'Xbox Game Studios',
@@ -131,6 +132,79 @@ class Command(BaseCommand):
         headers: dict[str, str] = {
             "X-RapidAPI-Key": "44bfa356a1mshc9b913b6479a122p1a88fcjsn7c87ef2d0d5c",
             "X-RapidAPI-Host": "cheapshark-game-deals.p.rapidapi.com"
+=======
+    def genre_list(self)-> None:
+        _genres_pattern: set[str] = {
+            "одиночная игра",
+            "мультиплеер",
+            'песочница',
+            'выживание',
+            'зомби',
+            'аниме',
+            'визуальная новелла',
+            'экономика',
+            'психоделика',
+            'баттл рояль',
+            'файтинг',
+            'реализм',
+            'война',
+            'стелс',
+            'строительство',
+            'VR',
+            'симульятор',
+            'открытый мир',
+            'кино',
+            'какашка'
+        }   
+        gn:str
+        for gn in _genres_pattern:
+            try:
+                Genre.objects.create(
+                    name=gn
+                )
+            except IntegrityError as e:
+                print("genre add error")
+
+    def company_list(self)-> None:
+        _companys_pattern: set[str] = {
+            "EA game",
+            "GGG",
+            'BSG',
+            'Blizzard',
+            'crytak',
+            'ubisoft',
+            'Valv',
+            'Wargaming',
+            'activision',
+            'bandai namco'
+        } 
+        cn:str
+        for cn in _companys_pattern:
+            ye = random.randint(1999,2023)
+            me = random.randint(1,12)
+            de = random.randint(1,25)
+            he = random.randint(0,23)
+            mi = random.randint(1,60)
+            try:
+                Company.objects.create(
+                    name=cn,
+                    datetime_created = datetime.datetime(
+                        year = ye,
+                        month = me,
+                        day = de,
+                        hour = he,
+                        minute = mi
+                        )
+                )
+            except IntegrityError as e:
+                print("company add error")
+
+    
+    def create_games(self) -> None:
+        headers: dict[str, str] = {
+           	"X-RapidAPI-Key": "e9787699e5msha3778afc026c592p16a8f6jsn526ef30a2127",
+	        "X-RapidAPI-Host": "cheapshark-game-deals.p.rapidapi.com"
+>>>>>>> 984084a2207a36f6070aed74c596a38203909407
         }
         querystring: dict[str, str] = {
             "lowerPrice":"0",
@@ -181,7 +255,13 @@ class Command(BaseCommand):
 
 
     def handle(self, *args, **kwargs):
+<<<<<<< HEAD
         self.create_genres()
         self.create_companies()
         self.create_games()
+=======
+        self.create_games()
+        self.company_list()
+        self.genre_list()
+>>>>>>> 984084a2207a36f6070aed74c596a38203909407
         print("FINISH")

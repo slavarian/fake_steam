@@ -3,7 +3,11 @@ from django.contrib import admin
 from typing import Union , TypeAlias
 # Register your models here.
 
+<<<<<<< HEAD
 from .models import Game, Genre, Company, Comment , WishList , Order , InviteCard , AdditionalImage
+=======
+from .models import Game, Genre, Company, Comment , WishList , Order , InviteCard
+>>>>>>> 984084a2207a36f6070aed74c596a38203909407
 
 MyType: TypeAlias = tuple[tuple[Union[str ,dict[str,list[str]]]]]
 
@@ -26,8 +30,12 @@ class GameAdmin(admin.ModelAdmin):
                 'fields':[
                     'name',
                     'price',
+<<<<<<< HEAD
                     'genres',
                     'main_imgor'
+=======
+                    'genres'
+>>>>>>> 984084a2207a36f6070aed74c596a38203909407
                 ]
             }
         ),
@@ -110,6 +118,9 @@ admin.site.register(Comment, CommentsAdmin)
 admin.site.register(WishList, WhishListAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(InviteCard, InviteCardAdmin)
+<<<<<<< HEAD
 admin.site.register(AdditionalImage)
 
+=======
+>>>>>>> 984084a2207a36f6070aed74c596a38203909407
 
